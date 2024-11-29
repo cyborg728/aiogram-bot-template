@@ -48,8 +48,7 @@ class BotConfig(CustomBaseSettings):
     default_locale: str = "en"
     drop_pending_updates: bool = True
     enable_webhook: bool = False
-    # pre_prod = imitate prod
-    environment: Literal["dev", "pre_prod", "prod"] = "dev"
+    environment: Literal["dev", "pre_prod", "prod"] = "dev" # pre_prod = imitate prod
     logging_dir: str = "bot/template/logs/bot/"
     logging_level: int = 10
     throttling_rate_limit: float = 1.0
@@ -59,14 +58,13 @@ class BotConfig(CustomBaseSettings):
 
 
 class DBConfig(CustomBaseSettings):
-    chat_model: Literal[False] | str = False # Fasle | "bot.template.models.chat" | path to YourChatModel(SQLModel). Model should be named "Chat"
     connector: str = "asyncpg"  # asyncpg | 
     host: str = ""
     name: str = ""
     password: SecretStr = SecretStr('')
     port: int = 0
     storage: Literal["postgres"] | None = None  # postgres | 
-    user_model: str = "bot.template.models.user" # "bot.template.models.user" | path to YourUserModel(SQLModel). Model should be named "User"
+    use_chat_model: bool = False
     username: str = ""
 
     class Config:

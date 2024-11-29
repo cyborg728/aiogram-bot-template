@@ -2,7 +2,6 @@
 
 from typing import Callable, ClassVar, Union
 from sqlalchemy.sql.schema import Column
-from bot import config
 from ..storages.postgres.ext.pgsql_uuid7 import uuid7
 from sqlalchemy.sql.sqltypes import ARRAY, BigInteger, Enum as SA_Enum, UUID as SA_UUID, String, Interval, Boolean
 from sqlmodel import Field, SQLModel
@@ -12,7 +11,8 @@ from .base import BaseModel, TimestampMixin
 from datetime import timedelta
 from aiogram.types import User as tg_User
 from sqlalchemy.event.api import listens_for
-from ..constants import Role
+from bot import config
+from bot.presets import Role
 
 
 class UserCreate(SQLModel):

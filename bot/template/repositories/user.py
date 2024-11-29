@@ -1,9 +1,6 @@
-from importlib import import_module
-from ..models import User
 from ..repositories.abstract import Repository
 from datetime import timedelta
-from bot import config
-from ..constants import Role
+from bot.presets import User, Role
 
 
 class UserRepository(Repository[User]):
@@ -11,7 +8,7 @@ class UserRepository(Repository[User]):
     User repository for CRUD and other SQL queries
     """
 
-    model = getattr(import_module(config.db.user_model), "User")
+    model = User
 
     async def add_role(
         self,
@@ -52,3 +49,9 @@ class UserRepository(Repository[User]):
     async def set_language_code(self, language_code: str, user: User) -> None:
         if user.language_code != language_code:
             user.language_code = language_code
+
+    async def get_or_create(self, instance: User) -> User:
+        """
+        :return: AbstractModel
+        """
+        raise NotImplementedError
