@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import (
 )
 
 from bot import config
-from ...models import User
+from ....models import User
 from ...repositories.user import UserRepository
 from .ext.pgsql_uuid7 import uuid7
 

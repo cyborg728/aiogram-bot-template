@@ -94,7 +94,7 @@ class Repository(Generic[AbstractModel]):
         return result.scalars().all()
 
     @abstractmethod
-    async def get_or_create(self, instance: Type[SQLModel]) -> AbstractModel:
+    async def get_or_create(self, instance: AbstractModel) -> AbstractModel:
         """
         :return: AbstractModel
         """

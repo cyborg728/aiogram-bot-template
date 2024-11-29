@@ -12,7 +12,7 @@ from datetime import timedelta
 from aiogram.types import User as tg_User
 from sqlalchemy.event.api import listens_for
 from bot import config
-from bot.presets import Role
+from ...constants import Role
 
 
 class UserCreate(SQLModel):

@@ -1,0 +1,1 @@
+from ..template.models.user import User

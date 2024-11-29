@@ -5,7 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 from bot.template.models.base import BaseModel
-from bot.template.models.user import User
+from bot import models
 from bot import config as bot_config
 
 # this is the Alembic Config object, which provides

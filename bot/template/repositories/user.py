@@ -1,6 +1,7 @@
 from ..repositories.abstract import Repository
 from datetime import timedelta
-from bot.presets import User, Role
+from ...models.user import User
+from ...constants import Role
 
 
 class UserRepository(Repository[User]):
