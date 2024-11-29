@@ -9,3 +9,11 @@ Some presets are configurable in `bot/__init__.py` file
 create custom role in bot.constants.role
 
 create custom models in bot.models. Every model with table=true will create automatically
+
+import rules:
+
+bot.template: relative imports
+
+bot: absolute imports
+
+use relative import inside module
