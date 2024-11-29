@@ -36,9 +36,9 @@ class Repository(Generic[AbstractModel]):
 
         return entity
 
-    async def delete(self, whereclause) -> None:
+    async def delete(self, *whereclause: ColumnExpressionArgument) -> None:
         """
-        Delete model from the database
+        Delete from the database
 
         :param whereclause: (Optional) Which statement
         :return: Nothing
@@ -72,7 +72,7 @@ class Repository(Generic[AbstractModel]):
         return result.scalar_one()
 
     async def get_many(
-        self, whereclause, limit: int = 100, order_by=None
+        self, *whereclause: ColumnExpressionArgument, limit: int = 100, order_by=None
     ) -> Sequence[AbstractModel]:
         """
         Get many models from the database with whereclause
@@ -86,10 +86,9 @@ class Repository(Generic[AbstractModel]):
 
         :return: List of founded models
         """
-        statement = select(self.model).where(whereclause).limit(limit)
+        statement = select(self.model).where(*whereclause).limit(limit)
         if order_by:
             statement = statement.order_by(order_by)
-
         result = await self.session.execute(statement)
 
         return result.scalars().all()
