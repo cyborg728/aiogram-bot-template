@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiogram-bot-template"
-version = "0.1.0"
+version = "0.0.1"
 description = "Simple and scalable aiogram bot template"
 authors = ["Noct"]
 readme = "README.md"
@@ -17,6 +17,7 @@ asyncpg = "^0.30.0"
 mypy = "^1.13.0"
 alembic = "^1.14.0"
 aiogram-i18n = "^1.4"
+fluent-compiler = "^1.1"
 
 [tool.poetry.group.redis]
 optional = true
