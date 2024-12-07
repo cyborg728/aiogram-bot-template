@@ -17,3 +17,10 @@ bot.template: relative imports
 bot: absolute imports
 
 use relative import inside module
+
+versions: x.y.z
+x - can have breaking changes
+y - files in /bot/ folder can be modified
+z -  files in /bot/template/ folder can be modified
+
+locales in /bot/locales/$LOCALE/messages.ftl
