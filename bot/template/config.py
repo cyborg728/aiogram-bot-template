@@ -2,8 +2,8 @@ import os
 from typing import Literal
 
 from pydantic import Field, SecretStr
-from sqlalchemy import URL
 from pydantic_settings import BaseSettings
+from sqlalchemy import URL
 
 ENV_PREFIX: str = os.getenv("ENV_PREFIX", "")
 
@@ -43,27 +43,28 @@ class BotApiConfig(CustomBaseSettings):
 
 
 class BotConfig(CustomBaseSettings):
-    available_locales: list[str] = ['en', 'ru']
+    available_locales: list[str] = ["en", "ru"]
     bot_api: "BotApiConfig" = Field(default_factory=BotApiConfig)
     default_locale: str = "en"
     drop_pending_updates: bool = True
     enable_webhook: bool = False
-    environment: Literal["dev", "pre_prod", "prod"] = "dev" # pre_prod = imitate prod
+    environment: Literal["dev", "pre_prod", "prod"] = "dev"  # pre_prod = imitate prod
     logging_dir: str = "bot/template/logs/bot/"
     logging_level: int = 10
+    supported_locales: list[str] = ["en", "ru"]
     throttling_rate_limit: float = 1.0
-    token: SecretStr = SecretStr('')
+    token: SecretStr = SecretStr("")
     # use __post_init_post_parse__
     # bot_id: int = int("token".split(":")[0])
 
 
 class DBConfig(CustomBaseSettings):
-    connector: str = "asyncpg"  # asyncpg | 
+    connector: str = "asyncpg"  # asyncpg |
     host: str = ""
     name: str = ""
-    password: SecretStr = SecretStr('')
+    password: SecretStr = SecretStr("")
     port: int = 0
-    storage: Literal["postgres"] | None = None  # postgres | 
+    storage: Literal["postgres"] | None = None  # postgres |
     use_chat_model: bool = False
     username: str = ""
 
