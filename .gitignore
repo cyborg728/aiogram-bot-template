@@ -135,6 +135,7 @@ dmypy.json
 
 # custom
 poetry.lock
+D_poetry.lock
 test*.py
 **/logs/*/*
 !**/logs/*/.gitkeep
