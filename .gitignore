@@ -134,6 +134,7 @@ dmypy.json
 # .vscode/
 
 # custom
+poetry.lock
 test*.py
 **/logs/*/*
 !**/logs/*/.gitkeep
