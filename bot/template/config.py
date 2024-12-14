@@ -51,7 +51,6 @@ class BotConfig(CustomBaseSettings):
     environment: Literal["dev", "pre_prod", "prod"] = "dev"  # pre_prod = imitate prod
     logging_dir: str = "bot/template/logs/bot/"
     logging_level: int = 10
-    supported_locales: list[str] = ["en", "ru"]
     throttling_rate_limit: float = 1.0
     token: SecretStr = SecretStr("")
     # use __post_init_post_parse__

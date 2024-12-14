@@ -1,3 +1,4 @@
+from calendar import c
 from pathlib import Path
 
 from aiogram.utils.mixins import ContextInstanceMixin
@@ -12,7 +13,7 @@ class I18n(ContextInstanceMixin["I18n"]):
     def __init__(
         self,
         locale: str = config.bot.default_locale,
-        locales: 
+        locales: list[str] = config.bot.available_locales,
     ) -> None:
         self._locale = locale
         self._translator_hub = {}
@@ -21,13 +22,10 @@ class I18n(ContextInstanceMixin["I18n"]):
     def _init_translator_hub(self) -> None:
         self._translator_hub = {}
 
-        for language_code in config.bot.supported_locales:
+        for language_code in config.bot.available_locales:
             files = ["locales/" + (language_code + ".ftl") + "/messages.ftl"]
-            self._translator_hub[language_code.value] = FluentTranslator(
-                locale=language_code.value,
-                translator=FluentBundle.from_files(
-                    language_code.value, files, use_isolating=False
-                ),
+            self._translator_hub[language_code] = FluentBundle.from_files(
+                language_code, files, use_isolating=False
             )
 
     async def startup(self) -> None:

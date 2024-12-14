@@ -24,3 +24,10 @@ y - files in /bot/ folder can be modified
 z -  files in /bot/template/ folder can be modified
 
 locales in /bot/locales/$LOCALE/messages.ftl
+
+* HOW TO INIT PROJECT *
+
+1) Rename project in "/pyproject.toml"
+2) Install dependencies. "poetry install"
+- "poetry update --with redis"
+- "poetry update --with redis"
